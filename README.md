@@ -1,2 +1,0 @@
-# megumin-bot
-Bot
