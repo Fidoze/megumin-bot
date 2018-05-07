@@ -15,11 +15,17 @@ async def on_ready():
 async def explosion():
     await bot.say("EXPLOOOOSION\n http://gifimage.net/wp-content/uploads/2017/08/megumin-explosion-gif-5.gif")
 
-@bot.command()
+@bot.command(
+   help="Don't",
+   description=""
+)
 async def lewd():
     await bot.say("Don't lewd lolis!")
 
-@bot.command()
+@bot.command(
+   help="<3",
+   descriprion=""
+)
 async def waifu():
     await bot.say("http://megumin.love")
 
