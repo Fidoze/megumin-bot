@@ -1,3 +1,4 @@
+import discord
 import asyncio
 from discord.ext.commands import Bot
 from discord.ext import commands
@@ -7,6 +8,7 @@ bot = commands.Bot('m ')
 @bot.event
 async def on_ready():
     print("ready for explosions!")
+    await bot.change_presence(game=discord.Game(name='z Fidoze <3'))
 
 @bot.command(
     help='BOOM',
@@ -16,15 +18,15 @@ async def explosion():
     await bot.say("EXPLOOOOSION\n http://gifimage.net/wp-content/uploads/2017/08/megumin-explosion-gif-5.gif")
 
 @bot.command(
-   help="Don't",
-   description=""
-)
+	help='Dont',
+    description='...'
+ )
 async def lewd():
     await bot.say("Don't lewd lolis!")
 
 @bot.command(
-   help="<3",
-   description=""
+	help="<3",
+	description=""
 )
 async def waifu():
     await bot.say("http://megumin.love")
