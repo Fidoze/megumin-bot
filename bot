@@ -21,7 +21,7 @@ async def lewd():
 
 @bot.command()
 async def waifu():
-    await bot.say(bot.user.mention)
+    await bot.say("megumin.love", bot.user.mention)
 
 @bot.command()
 async def dog():
