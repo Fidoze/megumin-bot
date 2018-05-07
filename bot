@@ -1,31 +1,40 @@
-import discord
 import asyncio
 from discord.ext.commands import Bot
 from discord.ext import commands
 
-client = discord.Client()
-bot = commands.Bot('!m')
+bot = commands.Bot('m ')
 
-@client.event
+@bot.event
 async def on_ready():
     print("ready for explosions!")
 
-@client.event
-async def on_message(message):
-	if message.content == "m explosion":
-		await client.send_message(message.channel, "EXPLOOOOSION")
-	if message.content == "m lewd":
-		await client.send_message(message.channel, "Don't lewd lolis")
-	if message.content == "m rape":
-		await client.send_message(message.channel, "*megumin rapes you")
+@bot.command(
+    help='BOOM',
+    description='...'
+)
+async def explosion():
+    await bot.say("EXPLOOOOSION\n http://gifimage.net/wp-content/uploads/2017/08/megumin-explosion-gif-5.gif")
 
-@client.event 
+@bot.command()
+async def lewd():
+    await bot.say("Don't lewd lolis!")
+
+@bot.command()
+async def waifu():
+    await bot.say(bot.user.mention)
+
+@bot.command()
+async def dog():
+    await bot.say("http://random.dog")
+
+
+@bot.event
 async def on_member_join(member):
-	await client.send_message(discord.Object(id="439060856542593036"), "Welcome and get ready for explosions {}!".format(member.mention))
+    await bot.send_message(discord.Object(id="439060856542593036"), "Welcome and get ready for explosions {}!".format(member.mention))
 
-@client.event 
+@bot.event
 async def on_member_remove(member):
-	await client.send_message(discord.Object(id="439060856542593036"), "Bye, have a good day {}!".format(member.mention))
+    await bot.send_message(discord.Object(id="439060856542593036"), "Bye, have a good day {}!".format(member.mention))
 
-client.run("NDQyOTY4MzMxNzU5Mzg2NjI1.DdG2rw.0DIGsRXOEJ1lcYp-QBTIDJAkSlY)
+bot.run("NDQyOTY4MzMxNzU5Mzg2NjI1.DdG2rw.0DIGsRXOEJ1lcYp-QBTIDJAkSlY")
 client.login(process.env.NDQyOTY4MzMxNzU5Mzg2NjI1.DdG2rw.0DIGsRXOEJ1lcYp-QBTIDJAkSlY)
