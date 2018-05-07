@@ -24,7 +24,7 @@ async def lewd():
 
 @bot.command(
    help="<3",
-   descriprion=""
+   description=""
 )
 async def waifu():
     await bot.say("http://megumin.love")
