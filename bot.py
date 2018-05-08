@@ -1,9 +1,12 @@
 import discord
+import random
 import asyncio
 from discord.ext.commands import Bot
 from discord.ext import commands
+import random
 
 bot = commands.Bot('m ')
+explosions = ["http://gifimage.net/wp-content/uploads/2017/08/megumin-explosion-gif-5.gif", "https://media1.tenor.com/images/3197441d730ffde04b00fe169431ee89/tenor.gif?itemid=8587771", "https://media1.tenor.com/images/88c9891f89eb13e66a414d65dd6a31f7/tenor.gif?itemid=8899533"]
 
 @bot.event
 async def on_ready():
@@ -15,7 +18,7 @@ async def on_ready():
     description='...'
 )
 async def explosion():
-    await bot.say("EXPLOOOOSION\n http://gifimage.net/wp-content/uploads/2017/08/megumin-explosion-gif-5.gif")
+    await bot.say("EXPLOSION\n" + random.choice(explosions))
 
 @bot.command(
 	help='Dont',
@@ -34,6 +37,11 @@ async def waifu():
 @bot.command()
 async def dog():
     await bot.say("http://random.dog")
+
+@bot.command()
+async def flipcoin():
+	choice = random.choice(['Head', 'Tail'])
+	await bot.say(f'You flipped {choice}')
 
 
 @bot.event
