@@ -71,6 +71,11 @@ async def on_message(msg):
     if msg.content.upper().startswith("GEJ"):
         await bot.send_message(msg.channel, "<@394911132563013633>")
 
+    if msg.content.upper().startswith("KOT"):
+        await bot.send_message(msg.channel, "STONK")
+
+
+
 #powitania_pożegnania
 
 @bot.event
