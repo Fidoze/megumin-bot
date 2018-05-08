@@ -39,7 +39,7 @@ async def dog():
 
 
 @bot.command(pass_context=True)
-async def rip():
+async def rip(message):
     await bot.say(f"{message.author.mention} pays respect")
 
 @bot.command(
