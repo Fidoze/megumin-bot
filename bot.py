@@ -14,21 +14,21 @@ async def on_ready():
     await bot.change_presence(game=discord.Game(name='z Fidoze <3'))
 
 @bot.command(
-    help='BOOM',
+    help='- BOOM',
     description='...'
 )
 async def explosion():
     await bot.say("EXPLOSION\n" + random.choice(explosions))
 
 @bot.command(
-	help='Dont',
+	help='- Dont',
     description='...'
  )
 async def lewd():
     await bot.say("Don't lewd lolis!")
 
 @bot.command(
-	help="<3",
+	help="- <3",
 	description=""
 )
 async def waifu():
@@ -37,6 +37,10 @@ async def waifu():
 @bot.command()
 async def dog():
     await bot.say("http://random.dog")
+
+@bot.command(pass_context=True)
+async def rip():
+    await bot.say(f"{message.author.mention} pays respect")
 
 @bot.command()
 async def flipcoin():
