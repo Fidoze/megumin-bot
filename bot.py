@@ -54,23 +54,19 @@ async def flipcoin():
 #Komendy_be_prefixu
 
 @bot.event
-async def on_message(gay):
-    if gay.content.startswith("ur mom gay"):
-        await bot.send_message(gay.channel, "no u")
-    await bot.process_commands(gay)
+async def on_message(msg):
+    if msg.content.startswith("ur mom gay"):
+        await bot.send_message(msg.channel, "no u")
 
-@bot.event
-async def on_message(Xd):
-    if Xd.content.startswith("Xd"):
-        await bot.send_message(Xd.channel, "*Xd intensifies*")
-    await bot.process_commands(Xd)
+    if msg.content.startswith("Xd"):
+        await bot.send_message(msg.channel, "**Xd**")
 
-@bot.event
-async def on_message(Kazuma):
-    if Kazuma.content.startswith("Kazuma"):
-        await bot.send_message(Kazuma.channel, "KAZUMA KAZUMA KAZUMA")
-    await bot.process_commands(Kazuma)
+    if msg.content.startswith("Kazuma"):
+        await bot.send_message(msg.channel, "KAZUMA KAZUMA KAZUMA")
 
+    if msg.content.startswith("good night"):
+        await bot.send_message(msg.channel, "Good night :3")
+        await bot.process_commands(msg)
 
 #powitania_pożegnania
 
