@@ -55,16 +55,16 @@ async def flipcoin():
 
 @bot.event
 async def on_message(msg):
-    if msg.content.upper().startswith("ur mom gay"):
+    if msg.content.startswith("ur mom gay"):
         await bot.send_message(msg.channel, "no u")
 
     if msg.content.startswith("Xd"):
         await bot.send_message(msg.channel, "**Xd**")
 
-    if msg.content.upper().startswith("Kazuma"):
+    if msg.content.startswith("Kazuma"):
         await bot.send_message(msg.channel, "KAZUMA KAZUMA KAZUMA")
 
-    if msg.content.upper().startswith("good night"):
+    if msg.content.startswith("good night"):
         await bot.send_message(msg.channel, "Good night :3")
         await bot.process_commands(msg)
 
