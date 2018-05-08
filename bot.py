@@ -69,9 +69,6 @@ async def on_message(msg):
     if msg.content.upper().startswith("GOOD NIGHT"):
         await bot.send_message(msg.channel, "Good night :3")
 
-    if msg.content.upper().startswith("GEJ"):
-        await bot.send_message(msg.channel, "<@394911132563013633>")
-
     if msg.content.startswith("-rule34 tags megumin"):
         await bot.send_message(msg.channel, ">:l")
     await bot.process_commands(msg)
