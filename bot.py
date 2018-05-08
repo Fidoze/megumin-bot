@@ -42,11 +42,11 @@ async def dog():
 async def rip():
     await bot.say(f"{message.author.mention} pays respect")
 
-@bot.command()
-async def flipcoin(
+@bot.command(
 	help='- Flips coin',
-    description=''
- ):
+    description='...'
+ )
+async def flipcoin():
 	choice = random.choice(['Head', 'Tail'])
 	await bot.say(f'You flipped {choice}')
 
