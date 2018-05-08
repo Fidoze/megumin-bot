@@ -60,9 +60,7 @@ async def on_message(msg):
     if msg.content.upper().startswith("UR MOM GAY"):
         await bot.send_message(msg.channel, "no u")
 
-    if msg.content.startswith("Xd"):
-        await bot.send_message(msg.channel, "**Xd**")
-
+    if msg.content.upper().startswith("KAZUMA")
     if msg.content.upper().startswith("KAZUMA"):
         await bot.send_message(msg.channel, "KAZUMA KAZUMA KAZUMA")
 
