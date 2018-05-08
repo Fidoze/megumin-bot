@@ -22,15 +22,15 @@ async def explosion():
     await bot.say("EXPLOSION\n" + random.choice(explosions))
 
 @bot.command(
-	help='- Dont',
+    help='- Dont',
     description='...'
  )
 async def lewd():
     await bot.say("Don't lewd lolis!")
 
 @bot.command(
-	help="- <3",
-	description=""
+    help="- <3",
+    description=""
 )
 async def waifu():
     await bot.say("http://megumin.love")
@@ -44,27 +44,27 @@ async def rip(message):
     await bot.say(f"{message.message.author.mention} pays respect")
 
 @bot.command(
-	help='- Flips coin',
+    help='- Flips coin',
     description='...'
  )
 async def flipcoin():
-	choice = random.choice(['Head', 'Tail'])
-	await bot.say(f'You flipped {choice}')
+    choice = random.choice(['Head', 'Tail'])
+    await bot.say(f'You flipped {choice}')
 
 #Komendy_be_prefixu
 
 @bot.event
 async def on_message(msg):
-    if msg.content.startswith("ur mom gay"):
+    if msg.content.upper().startswith("ur mom gay"):
         await bot.send_message(msg.channel, "no u")
 
     if msg.content.startswith("Xd"):
         await bot.send_message(msg.channel, "**Xd**")
 
-    if msg.content.startswith("Kazuma"):
+    if msg.content.upper().startswith("Kazuma"):
         await bot.send_message(msg.channel, "KAZUMA KAZUMA KAZUMA")
 
-    if msg.content.startswith("good night"):
+    if msg.content.upper().startswith("good night"):
         await bot.send_message(msg.channel, "Good night :3")
         await bot.process_commands(msg)
 
