@@ -68,6 +68,9 @@ async def on_message(msg):
         await bot.send_message(msg.channel, "Good night :3")
         await bot.process_commands(msg)
 
+    if msg.content.upper().startswith("GEJ"):
+        await bot.send_message(msg.channel, "<@394911132563013633>")
+
 #powitania_pożegnania
 
 @bot.event
