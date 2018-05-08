@@ -65,6 +65,12 @@ async def on_message(Xd):
         await bot.send_message(Xd.channel, "*Xd intensifies*")
     await bot.process_commands(Xd)
 
+@bot.event
+async def on_message(Kazuma):
+    if Kazuma.content.startswith("Kazuma"):
+        await bot.send_message(Kazuma.channel, "KAZUMA KAZUMA KAZUMA")
+    await bot.process_commands(Kazuma)
+
 
 #powitania_pożegnania
 
