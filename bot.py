@@ -69,9 +69,11 @@ async def cookie(Cookie):
     await bot.say("{} gives {} :cookie:".format(Cookie.message.author.mention, "".join(mentions)))
 
 @bot.command(
+    help="- Info about you",
+    description="",
     pass_context = True
 )
-async def me(User):
+async def user(User):
     Name = User.message.author.name
     Nickname = User.message.author.nick
     Id = User.message.author.id
