@@ -67,6 +67,16 @@ async def flipcoin():
 async def cookie(Cookie):
     mentions = [i.name for i in Cookie.message.mentions]
     await bot.say("{} gives {} :cookie:".format(Cookie.message.author.mention, "".join(mentions)))
+    
+    
+@bot.command(
+    pass_context = True
+)
+async def user(User):
+    Name = User.message.author.name
+    Nickname = User.message.author.nick
+    Id = User.message.author.id
+    await bot.say("{}'s Name: {}, Nickname: {}, id: {}".format(Cookie.message.author.mention, Name, Nickname, Id))
 
 
 
