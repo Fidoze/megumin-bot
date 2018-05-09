@@ -99,16 +99,9 @@ async def on_message(msg):
     if msg.content.startswith("-rule34 tags megumin"):
         await bot.send_message(msg.channel, ">:l")
 
-    if msg.content.startswith("😂"):
-        await bot.delete_message(msg)
-
     if msg.content.upper().startswith("YOS"):
         await bot.send_message(msg.channel, "https://is.gd/isJCWP")
-
-    if msg.content.startswith("😹"):
-        await bot.delete_message(msg)
     await bot.process_commands(msg)
-
 
 
 
