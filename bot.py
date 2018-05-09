@@ -71,7 +71,7 @@ async def cookie(Cookie):
 @bot.command(
     pass_context = True
 )
-async def user(User):
+async def me(User):
     Name = User.message.author.name
     Nickname = User.message.author.nick
     Id = User.message.author.id
