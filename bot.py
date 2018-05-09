@@ -5,7 +5,7 @@ from discord.ext.commands import Bot
 from discord.ext import commands
 
 bot = commands.Bot('m ')
-explosions = ["https://vignette.wikia.nocookie.net/powerlisting/images/b/b6/Explosion_Megumin.gif/revision/latest?cb=20160302023153","https://tenor.com/view/explosion-megumin-konusoba-gif-7559841", "https://media1.tenor.com/images/3197441d730ffde04b00fe169431ee89/tenor.gif?itemid=8587771", "https://media1.tenor.com/images/88c9891f89eb13e66a414d65dd6a31f7/tenor.gif?itemid=8899533"]
+explosions = ["https://vignette.wikia.nocookie.net/powerlisting/images/b/b6/Explosion_Megumin.gif","https://tenor.com/view/explosion-megumin-konusoba-gif-7559841", "https://media1.tenor.com/images/3197441d730ffde04b00fe169431ee89/tenor.gif?itemid=8587771", "https://media1.tenor.com/images/88c9891f89eb13e66a414d65dd6a31f7/tenor.gif?itemid=8899533"]
 facts = ["Raw horse meat is a popular food in Japan.", "There's over 5.5 million vending machines in Japan!", "You need to wear face masks when you are ill" "The unemployment rate in Japan is only 4%.", "Crime rate in Japan is one of the lowest in the world.", "Japanese can say “Sorry” in 20 different ways.", "Japan's literacy rate is almost 100%.", "Japanese people can't speak english very well.", "There are 4 writing systems in Japan!", "Tokyo is the second most expensive city in the world to live in.", "Over 1 thousand tremors hits Japan every year."]
 #Komendy_z_prefixem
 
@@ -27,7 +27,7 @@ async def explosion():
     description='...'
 )
 async def J_fact():
-    await bot.say("Here's your random fact! Enjoy!\n" + random.choice(facts))
+    await bot.say("Here's your random fact! Enjoy\n" + random.choice(facts))
 
 @bot.command(
     help='- Dont',
@@ -67,8 +67,7 @@ async def flipcoin():
 async def cookie(Cookie):
     mentions = [i.name for i in Cookie.message.mentions]
     await bot.say("{} gives {} :cookie:".format(Cookie.message.author.mention, "".join(mentions)))
-    
-    
+
 @bot.command(
     pass_context = True
 )
@@ -76,11 +75,13 @@ async def user(User):
     Name = User.message.author.name
     Nickname = User.message.author.nick
     Id = User.message.author.id
-    await bot.say("{}'s Name: {}, Nickname: {}, id: {}".format(Cookie.message.author.mention, Name, Nickname, Id))
+    await bot.say("{}'s\n Name: {}\n Nickname: {}\n id: {}\n Avatar: {}".format(User.message.author.mention, Name, Nickname, Id, User.message.author.avatar_url))
 
 
 
-#Komendy_be_prefixu
+
+
+#Komendy_bez_prefixu
 
 @bot.event
 async def on_message(msg):
@@ -97,7 +98,14 @@ async def on_message(msg):
 
     if msg.content.startswith("-rule34 tags megumin"):
         await bot.send_message(msg.channel, ">:l")
+
+    if msg.content.startswith("😂"):
+        await bot.delete_message(msg)
+
+    if msg.content.upper().startswith("YOS"):
+        await bot.send_message(msg.channel, "https://is.gd/isJCWP")
     await bot.process_commands(msg)
+
 
 
 #powitania_pożegnania
