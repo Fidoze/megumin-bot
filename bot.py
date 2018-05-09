@@ -27,7 +27,7 @@ async def explosion():
     description='...'
 )
 async def J_fact():
-    await bot.say("Here's your random fact! Enjoy\n" + random.choice(facts))
+    await bot.say("Here's your random fact! Enjoy!\n" + random.choice(facts))
 
 @bot.command(
     help='- Dont',
