@@ -117,4 +117,4 @@ async def on_member_join(member):
 async def on_member_remove(member):
     await bot.send_message(discord.Object(id="439060856542593036"), "Bye, have a good day {}!".format(member.mention))
 
-bot.run("NDQyOTY4MzMxNzU5Mzg2NjI1.DdG2rw.0DIGsRXOEJ1lcYp-QBTIDJAkSlY")
+bot.run("")
