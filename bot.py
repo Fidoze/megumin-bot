@@ -3,6 +3,8 @@ import random
 import asyncio
 from discord.ext.commands import Bot
 from discord.ext import commands
+import json
+from random import randint
 
 bot = commands.Bot('m ')
 explosions = ["https://vignette.wikia.nocookie.net/powerlisting/images/b/b6/Explosion_Megumin.gif","https://tenor.com/view/explosion-megumin-konusoba-gif-7559841", "https://media1.tenor.com/images/3197441d730ffde04b00fe169431ee89/tenor.gif?itemid=8587771", "https://media1.tenor.com/images/88c9891f89eb13e66a414d65dd6a31f7/tenor.gif?itemid=8899533"]
@@ -13,6 +15,58 @@ facts = ["Raw horse meat is a popular food in Japan.", "There's over 5.5 million
 async def on_ready():
     print("ready for explosions!")
     await bot.change_presence(game=discord.Game(name='z Fidoze <3'))
+    global hajs
+    try:
+        with open('hajs.json') as test:             
+            hajs = json.load(test)
+    except FileNotFoundError:
+        print("ni ma")
+        hajs = {}
+
+@bot.command(pass_context=True)
+async def create(ctx):
+    global hajs
+    id = ctx.message.author.id
+    if id in hajs:
+        await bot.say("You arleady have an account!")
+    else:
+        hajs[id] = 50
+        await bot.say("Account created!")
+        zapisz()
+
+@bot.command(pass_context=True)
+async def stan(ctx):
+    id = ctx.message.author.id
+    if id in hajs:
+        await bot.say("💰 You have {} money! 💰".format(hajs[id]))
+    else:
+        print("dunno")
+
+@bot.command(pass_context=True)
+@commands.cooldown(1, 60*60*24, commands.BucketType.user)
+async def daily(ctx):
+    id = ctx.message.author.id
+    if id in hajs:
+        hajs[id] += 50
+        await bot.say("{} +50!".format(ctx.message.author.mention))
+        zapisz()
+    else:
+        await bot.say("Make an account first!")
+
+@bot.command(pass_context=True)
+async def work(ctx):
+    RanHajs = random.randint(1, 20)
+    id = ctx.message.author.id
+    if id in hajs:
+        hajs[id] += RanHajs
+        await bot.say("You have earned {} money!".format(RanHajs))
+        zapisz()
+    else:
+        await bot.say("That shouldn't even happen")
+
+def zapisz():
+    with open('hajs.json', 'w+') as test:
+        json.dump(hajs, test)
 
 @bot.command(
     help='- BOOM',
@@ -42,10 +96,6 @@ async def lewd():
 )
 async def waifu():
     await bot.say("http://megumin.love")
-
-@bot.command()
-async def dog():
-    await bot.say("http://random.dog")
 
 @bot.command(pass_context=True)
 async def rip(message):
@@ -80,29 +130,53 @@ async def user(User):
     await bot.say("{}'s\n Name: {}\n Nickname: {}\n id: {}\n Avatar: {}".format(User.message.author.mention, Name, Nickname, Id, User.message.author.avatar_url))
 
 
+def has_pings():
+    def predicate(Ship):
+        if Ship.message.mentions:
+            return True
+        else:
+            return False
+    return commands.check(predicate)
+
+@has_pings()
+@bot.command(pass_context = True)
+async def ship(Ship):
+    author_mention = Ship.message.author.mention
+    param_mention = Ship.message.mentions[0].mention
+    Percent = random.randint(1, 100)
+    if Percent >= 60:
+    	await bot.say("{} x {} l {}\n True Love <3".format(author_mention, param_mention, Percent))
+    if Percent < 60:
+    	await bot.say("{} x {} l {}\n This is so sad...".format(author_mention, param_mention, Percent))
+
+
 
 
 
 #Komendy_bez_prefixu
 
-@bot.event
+@bot.event 
 async def on_message(msg):
     if msg.author == bot.user:
         return
     if msg.content.upper().startswith("UR MOM GAY"):
         await bot.send_message(msg.channel, "no u")
 
-    if msg.content.upper().startswith("KAZUMA"):
-        await bot.send_message(msg.channel, "KAZUMA KAZUMA KAZUMA")
-
     if msg.content.upper().startswith("GOOD NIGHT"):
         await bot.send_message(msg.channel, "Good night :3")
 
-    if msg.content.startswith("-rule34 tags megumin"):
+    if msg.content.startswith("-rule34 tags Megumin"):
         await bot.send_message(msg.channel, ">:l")
 
     if msg.content.upper().startswith("YOS"):
         await bot.send_message(msg.channel, "https://cdn.discordapp.com/attachments/439060856542593036/444454725803311105/9k.png")
+
+    if msg.content.upper().startswith("LIAM"):
+        await bot.send_message(msg.channel, "to morderca piesków :c")
+
+    if msg.content.upper().startswith("THIS IS SO SAD"):
+        await bot.send_message(msg.channel, "Here's your despacito\n https://www.youtube.com/watch?v=W3GrSMYbkBE")
+
     await bot.process_commands(msg)
 
 
@@ -117,4 +191,5 @@ async def on_member_join(member):
 async def on_member_remove(member):
     await bot.send_message(discord.Object(id="439060856542593036"), "Bye, have a good day {}!".format(member.mention))
 
-bot.run("NDQyOTY4MzMxNzU5Mzg2NjI1.DdG2rw.0DIGsRXOEJ1lcYp-QBTIDJAkSlY")
+
+bot.run("")
